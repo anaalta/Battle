@@ -8,16 +8,17 @@ enable :sessions
   end
 
   post '/names' do
-   @player1 = params[:player1]
-   @player2 = params[:player2]
-    p params
-    erb(:play)
+   session[:player1] = params[:player1]
+   session[:player2] = params[:player2]
+   p params
+   redirect '/play'
   end
 
-  get '/names' do
-    "value = " << session[:value].inspect
-    p params 
-    erb(:play)
+  get '/play' do
+  @player1 = session[:player1]
+  @player2 = session[:player2]
+  p params
+  erb(:play)
   end
 
 run! if app_file == $0
