@@ -22,7 +22,9 @@ enable :sessions
   end
 
   get '/attack' do
-    "#{session[:player1]} attacked #{session[:player2]}"
+    @player1 = session[:player1]
+    @player2 = session[:player2]
+    erb(:attack)
   end
 
 run! if app_file == $0
