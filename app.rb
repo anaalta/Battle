@@ -17,7 +17,8 @@ enable :sessions
   end
 
   get '/play' do
-  @player1 = $game.player1.name
+  @game = $game
+  @game.player1 = $game.player1.name
   @player2 = $game.player2.name
   @player2_hp = $game.player2.hp
   p params
@@ -25,10 +26,8 @@ enable :sessions
   end
 
   get '/attack' do
-    @player1 = $game.player1
-    @player2 = $game.player2
-    $game.attack(@player2)
-    @player2_hp = $game.player2.hp
+    @game = $game
+    @game.attack(@game.player2)
     erb(:attack)
   end
 

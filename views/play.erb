@@ -1,5 +1,5 @@
-<%= "#{@player1} vs. #{@player2}" %>
-<%= "#{@player2} HP: #{@player2_hp}" %>
+<%= "#{@game.player1.name} vs. #{@game.player2.name}" %>
+<%= "#{@game.player2.name} HP: #{@game.player2.hp}" %>
 <form action="/attack" method="get">
   <input type="submit" value="Attack">
 </form>
