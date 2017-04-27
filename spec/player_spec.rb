@@ -9,4 +9,13 @@ let(:name) {double :name}
     expect(player.name).to eq name
   end
 
+  it 'has hit points' do
+    expect(player.hp).to eq 100
+  end
+
+  it 'reduced hp when attacked' do
+    expect{player.attack}.to change{player.hp}.by(-10)
+  end
+
+
 end
