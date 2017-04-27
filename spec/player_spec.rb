@@ -1,7 +1,6 @@
 require 'player'
 
 describe Player do
-
 subject (:player){Player.new(name)}
 let(:name) {double :name}
 
@@ -14,7 +13,7 @@ let(:name) {double :name}
   end
 
   it 'reduced hp when attacked' do
-    expect{player.attack}.to change{player.hp}.by(-10)
+  expect{player.receives_damage}.to change{player.hp}.by(-10)
   end
 
 
