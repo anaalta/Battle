@@ -23,4 +23,13 @@ class Game
     @players.select { |player| player != @turn }
   end
 
+  def game_over?
+      losing_players.any?
+  end
+
+    private
+
+  def losing_players
+    @players.select { |player| player.hp <= 0 }
+  end
 end

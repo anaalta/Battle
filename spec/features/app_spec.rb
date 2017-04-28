@@ -26,5 +26,11 @@ it "swtiches players" do
   expect(page).to have_content "John's turn"
 end
 
+  it 'returns game over' do
+    sign_in_and_play
+    click_button("Attack")
+    19.times { click_button("Attack") }
+    expect(page).to have_content "John has lost the game!"
+  end 
 
 end

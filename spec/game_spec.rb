@@ -3,8 +3,8 @@ require './lib/player'
 
 describe Game do
  subject(:game){ described_class.new(player1,player2)}
- let(:player1) {double :player}
- let(:player2) {double :player}
+ let(:player1) {double :player, hp: 100}
+ let(:player2) {double :player, hp: 100}
 
 it 'takes method attack' do
   expect(game).to respond_to(:attack).with(1).argument
@@ -22,10 +22,17 @@ end
 
 describe '#switch_turns' do
   it 'switches turns between the players' do
-     allow(player1).to receive(:receives_damage)
+    allow(player1).to receive(:receives_damage)
     game.attack(player1)
     expect(game.switch_turns).to eq [player2]
   end
 end
+
+  describe "game_over?" do
+    it "returs false if no one has reached 0 hp" do
+
+      expect(game.game_over?).to eq false
+    end
+  end
 
 end
