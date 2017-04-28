@@ -3,6 +3,8 @@ class Game
 
   def initialize(player1, player2)
     @players = [player1, player2]
+    @turn = player1
+
   end
 
   def player1
@@ -15,6 +17,10 @@ class Game
 
   def attack(player)
     player.receives_damage
+  end
+
+  def switch_turns
+    @players.select { |player| player != @turn }
   end
 
 end

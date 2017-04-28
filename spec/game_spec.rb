@@ -20,4 +20,12 @@ end
     expect(game.player2).to eq(player2)
  end
 
+describe '#switch_turns' do
+  it 'switches turns between the players' do
+     allow(player1).to receive(:receives_damage)
+    game.attack(player1)
+    expect(game.switch_turns).to eq [player2]
+  end
+end
+
 end

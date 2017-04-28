@@ -20,5 +20,11 @@ it 'attacks player 2' do
   expect(page).to have_content("Paul attacked John")
 end
 
+it "swtiches players" do
+  sign_in_and_play
+  click_button("Attack")
+  expect(page).to have_content "John's turn"
+end
+
 
 end

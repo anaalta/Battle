@@ -18,7 +18,7 @@ enable :sessions
 
   get '/play' do
   @game = $game
-  @game.player1 = $game.player1.name
+  @player1= $game.player1.name
   @player2 = $game.player2.name
   @player2_hp = $game.player2.hp
   p params
@@ -28,6 +28,7 @@ enable :sessions
   get '/attack' do
     @game = $game
     @game.attack(@game.player2)
+    @game.switch_turns
     erb(:attack)
   end
 
