@@ -30,8 +30,11 @@ end
 
   describe "game_over?" do
     it "returs false if no one has reached 0 hp" do
-
       expect(game.game_over?).to eq false
+    end
+
+    it "returns true if one player reaches 0 hp" do
+      expect(game.lost?).to eq true
     end
   end
 

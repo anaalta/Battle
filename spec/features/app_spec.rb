@@ -30,7 +30,7 @@ end
     sign_in_and_play
     click_button("Attack")
     19.times { click_button("Attack") }
-    expect(page).to have_content "John has lost the game!"
-  end 
+    expect(page).to have_content "Game over!"
+  end
 
 end

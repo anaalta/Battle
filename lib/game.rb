@@ -27,9 +27,14 @@ class Game
       losing_players.any?
   end
 
-    private
+  def lost?
+    losing_players.each { |player| player.hp == 0 } ? true : false
+  end
+
+    # private
 
   def losing_players
     @players.select { |player| player.hp <= 0 }
   end
+
 end

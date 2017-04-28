@@ -29,6 +29,8 @@ enable :sessions
     @game = $game
     @game.attack(@game.player2)
     @game.switch_turns
+    @game.game_over?
+    @game.lost?
     erb(:attack)
   end
 

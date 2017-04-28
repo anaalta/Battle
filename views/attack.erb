@@ -1,6 +1,12 @@
+
+<% unless @game.game_over? %>
 <%= "#{@game.player1.name} attacked #{@game.player2.name}" %> <br>
 <%= "#{@game.player2.name} HP: #{@game.player2.hp}" %>
 <%= "#{@game.player2.name}'s turn" %>
+
+<% else %>
+<%= "#{@game.lost?} Game over!" %>
+<% end %>
 <form action="/attack" method="get">
   <input type="submit" value="Attack">
 </form>
